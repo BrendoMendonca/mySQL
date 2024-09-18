@@ -66,3 +66,17 @@ insert into cliente select * from cliente_aux;
 delete from cliente where i_cliente_cliente=1;
 select * from cliente;
 */
+
+/*clausulas do SELECT
+	select
+    from - indica a tabela que será utilizada na consulta
+    where - determina filtros/restrições à consulta
+    group by - agrupa linhas por meio de valores de colunas
+    having - filtro de grupos indesejáveis
+    order by - indica a ordenação dos registros
+*/
+
+/*Apelidando nomes das colunas com o SELECT:*/
+
+select
+	
