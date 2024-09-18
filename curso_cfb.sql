@@ -59,3 +59,10 @@ select * from cliente;
 delete from cliente where i_cliente_cliente>0;
 insert into cliente select * from cliente_aux;
 */
+
+/*DELETE*/
+/*delete from <tabela> where <condição>*/
+/*
+delete from cliente where i_cliente_cliente=1;
+select * from cliente;
+*/
