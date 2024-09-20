@@ -231,11 +231,12 @@ select * from cliente
  */
  
  /*self join*/
+ /*
  select *
  from cliente c1, cliente c2
  where 
 	c1.i_tipo_cliente = c2.i_tipo_cliente
     order by c1.i_cliente_cliente;
-
+*/
 
  
