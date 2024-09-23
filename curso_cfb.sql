@@ -128,7 +128,6 @@ from
 */	
 
 /*
-
 insert into cliente values(
 	(select max(c.i_cliente_cliente)+1 as idCliente from cliente c),
     'Gabriel',
@@ -210,29 +209,27 @@ select * from cliente
  */
  
  /*tipos de join*/
+ 
  /*inner join - retorna a relação entre as tabelas*/
- /*
- select c.i_cliente_cliente, c.s_nomeCliente_cliente, v.i_venda_venda
+ /*select c.i_cliente_cliente, c.s_nomeCliente_cliente, v.i_venda_venda
  from cliente c
  inner join venda v on c.i_cliente_cliente = v.i_cliente_cliente;
  */
- /*left join - retorna os valores da relação entre as tabelas e todo o conteúdo da tabela principal*/
  
+ /*left join - retorna os valores da relação entre as tabelas e todo o conteúdo da tabela principal*/ 
  /*select c.i_cliente_cliente, c.s_nomeCliente_cliente, v.i_cliente_cliente
  from cliente c
  left join venda v on c.i_cliente_cliente = v.i_cliente_cliente;
  */
  
  /*right join - retorna os valores da relação entre as tabelas e todo conteúdo da segunda tabela*/
- /*
- select c.i_cliente_cliente, c.s_nomeCliente_cliente, v.i_venda_venda
+ /*select c.i_cliente_cliente, c.s_nomeCliente_cliente, v.i_venda_venda
  from cliente c	
  right join venda v on c.i_cliente_cliente = v.i_cliente_cliente;
  */
  
  /*self join*/
- /*
- select *
+ /*select *
  from cliente c1, cliente c2
  where 
 	c1.i_tipo_cliente = c2.i_tipo_cliente

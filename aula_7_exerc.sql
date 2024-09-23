@@ -1,3 +1,4 @@
+
 create table funcionario(
 	Codigo INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     PrimeiroNome VARCHAR(15) NOT NULL,
@@ -38,9 +39,11 @@ VALUES
 ('Carlos', 'Alberto', 'Pereira', '1975-11-30', '19283746509', '192837465', 'Rua C, 789', '76543210', 'Belo Horizonte', '31977777777', 3, 'Contador', 7000.00),
 ('Ana', 'Luiza', 'Oliveira', '1992-03-15', '10987654321', '109876543', 'Rua D, 101', '65432109', 'Curitiba', '41966666666', 4, 'Marketing', 5000.00);
 
+/*update <tabela> set <coluna=valor_alterado> where <condição_alteração>;*/
+update funcionario set Funcao='Digulvadora' where CPF='10987654321';
+select * from funcionario;
 
-select * from departamento, funcionario;
-
+/*1 - lista nome e sobrenome ordenado por sobrenome*/
 select
 	PrimeiroNome,
     SegundoNome
@@ -48,6 +51,7 @@ select
     funcionario
     order by SegundoNome;
 
+/*2 - lista todos os campos de funcionario ordenados por cidade*/
 select *
 	from funcionario
     order by Cidade;
@@ -56,16 +60,31 @@ insert into funcionario (PrimeiroNome, SegundoNome, UltimoNome, DataNasci, CPF, 
 values
 ('Lucas', 'Gabriel', 'Santos', '2002-08-10', '10293847566', '102938475', 'Rua E, 202', '54321098', 'São Paulo', '11955555555', 1, 'Estagiário', 950.00);
 
+/*3 - lista os funcionários que têm sala´rio superior a 1000,00 ordenados pelo nome completo*/
 select *
 	from funcionario
     where Salario>1000
     order by PrimeiroNome, SegundoNome, UltimoNome;
 
+/*lista a data de nascimento e o priomeiro nome dos funciona´rios ordenados do mais novo par ao mais velho*/
 select
 	PrimeiroNome,
     DataNasci
     from funcionario
-    order by DataNasci desc;
-	
+    order by DataNasci desc;  
     
+
+/*5 - lista o nome, nome do departamento e a função de todos os funcionários*/
+/* alter table <tabela_origem> add constraint <nome_restrição> foreign key (<campo_tabela_origem>) references <tabela_destino> (<campo_tabela_destino>);*/
+alter table funcionario add constraint fk_CodDep foreign key (CodigoDepartamento) references departamento (Codigo);
+
+/*select <colunas_tabela_principal> from <tabela_principal> inner join <outra_tabela> on <coluna_tabela_principal> = <coluna_segunda_tabela>*/
+select
+	f.PrimeiroNome,
+    d.Nome as NomeDepartamento,
+    f.Funcao
+    from funcionario f
+    inner join departamento d on d.Codigo = f.CodigoDepartamento;
+    
+	
     
