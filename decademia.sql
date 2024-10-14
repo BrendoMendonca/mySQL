@@ -27,7 +27,12 @@ CREATE TABLE treinos (
     qnt_exercicios INT NOT NULL,
     FOREIGN KEY (aluno_id) REFERENCES alunos(id) ON DELETE CASCADE
 );
-
+alter table treinos add valor VARCHAR(8);
+alter table treinos add cref_responsavel VARCHAR(10);
+alter table treinos add pagamento VARCHAR(15);
+alter table treinos
+	drop column estoque,
+    drop column categoria;
 CREATE TABLE progresso (
     id INT AUTO_INCREMENT PRIMARY KEY,
     aluno_id INT,
@@ -36,6 +41,14 @@ CREATE TABLE progresso (
     imc FLOAT NOT NULL,
     FOREIGN KEY (aluno_id) REFERENCES alunos(id) ON DELETE CASCADE
 );*/
+CREATE TABLE produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL,
+    categoria ENUM('garrafa', 'camisa') NOT NULL,
+    cidade_fabricacao VARCHAR(50),
+    estoque INT DEFAULT 0
+);
 
 select * from personais;
 select * from alunos;
